@@ -2,18 +2,18 @@
     "manifest_version": 2,
     "name": "Samuraizer",
     "version": "1.0",
-    "description": "Created Samuraizer for getting summary of articles withing seconds and going any third party websites. This extension are fully ads free.",
+    "description": "Created Samuraizer for getting summary of articles within seconds and going to any third party websites. This extension is fully ad-free.",
     "permissions": [
         "activeTab"
     ],
     "browser_action": {
         "default_popup": "popup.html",
-        "default_icon": "Logo.svg"
+        "default_icon": "logo.jpg"
     },
     "icons": {
-        "16": "Logo.svg",
-        "48": "Logo.svg",
-        "128": "Logo.svg"
+        "16": "logo.jpg",
+        "48": "logo.jpg",
+        "128": "logo.jpg"
     },
     "background": {
         "scripts": [
@@ -30,5 +30,6 @@
                 "content.js"
             ]
         }
-    ]
+    ],
+    "storage": "local"
 }

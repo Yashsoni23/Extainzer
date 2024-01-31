@@ -36,7 +36,10 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
     summarize(scrapedContent)
       .then((summarizedContent) => {
         console.log(summarizedContent);
-        // Send the summarized content back to the content script
+        chrome.runtime.sendMessage({
+          action: "transferData",
+          data: summarizedContent.result,
+        });
         sendResponse({
           action: "summarizedContent",
           content: summarizedContent.result,
@@ -50,5 +53,22 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
 
     // Return true to indicate that the response will be sent asynchronously
     return true;
+  }
+});
+
+let summaryData = "";
+
+chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
+  if (message.action === "transferData") {
+    summaryData = message.data;
+    chrome.storage.local.set({ summaryData: summaryData }, function () {
+      console.log("Summary data saved:", summaryData);
+    });
+  }
+});
+
+chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
+  if (message.action === "getSummaryData") {
+    sendResponse({ action: "summaryData", data: summaryData });
   }
 });

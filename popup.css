@@ -6,7 +6,7 @@
 
 
 .heading {
-    color: #23243b;
+    color: #326ff3;
     font-size: 1.7rem;
 }
 
@@ -35,7 +35,14 @@ html::-webkit-scrollbar {
 
 }
 
-#btn {
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* #btn {
     font-size: 1.2rem;
     color: white;
     background-color: #2c73f7;
@@ -48,7 +55,7 @@ html::-webkit-scrollbar {
 
 #btn:hover {
     background-color: #5b83cd7d;
-}
+} */
 
 #result {
     font-size: 1rem;
